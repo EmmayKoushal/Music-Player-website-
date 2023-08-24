@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music</title>
+    <!-- <link rel="stylesheet" href="{{url_for('static', filename='CSS/musicstyle.css')}}">  -->
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        
+        }
+
+        .container{
+            width: 100%;
+            height: 100vh;
+            background-image: url("{{ url_for('static', filename='Images/Rectangle5.png') }}");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        div::-webkit-scrollbar {
+            display: none; /* for Chrome, Safari, and Opera */
+        }       
+
+        .triangle{
+            position: absolute;
+            width: 375.71px;
+            height: 373.17px;
+            left: 320.18px;
+            top: 700px;
+        }
+
+        .rectangle2{
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            left: 632.56px;
+            top: 236px;
+            mix-blend-mode: color-burn;
+            transform: rotate(24.91deg);
+        }
+
+        .circle1{
+            position: absolute;
+            width: 150px;
+            height: 123px;
+            left: 800px;
+            top: 900px;
+
+            mix-blend-mode: color-burn;
+        }
+
+        .orangecircle{
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            left: 119px;
+            top: 508px;
+            mix-blend-mode: color-burn;
+        }
+
+        .yellowcircle{
+            position: absolute;
+            width: 500px;
+            height: 609px;
+            right: 0px;
+            top: 159px;
+        }
+
+        .rectangle3{
+            position: absolute;
+            width: 566px;
+            height: 418px;
+            left: 110.36px;
+            top: -200px;
+            mix-blend-mode: color-burn;
+            border-radius: 68px;
+            transform: rotate(39.41deg);
+        }
+
+        body {overflow: hidden; }
+
+        img {
+            -webkit-animation: mover 1.5s infinite  alternate;
+            animation: mover 1.5s infinite  alternate;
+        }
+        @-webkit-keyframes mover {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-50px); }
+        }
+        @keyframes mover {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-50px); }
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content" style="overflow-y: scroll; height:100%;">
+            <div class="navigation">
+                <ul>
+                    <li>Home</li>
+                    <li>About Us</li>
+                    <li>Contact Us</li>
+                    <li><a href="/logout">Logout</a></li>
+                </ul>
+            </div>
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+            
+
+            <button type="button" onclick="myFunction()">Submit</button>
+
+        <script>
+            function myFunction(){
+                $.ajax({
+            type: 'POST',
+            url: "/home/emmaykoushal/Documents/testjs.py",
+            //data: {param: }, //passing some input here
+            //dataType: "text",
+            success: function(response){
+            }
+            }).done(function(){
+                
+            });
+        }
+    </script>
+
+            <img src="{{ url_for('static', filename='Images/triangle.png')}} " class="triangle">
+            <img src="{{ url_for('static', filename='Images/rectangle2.png')}} " class="rectangle2">
+            <img src="{{ url_for('static', filename='Images/circle1.png')}} " class="circle1">
+            <img src="{{ url_for('static', filename='Images/circle2.png')}} " class="orangecircle">
+            <img src="{{ url_for('static', filename='Images/circle3.png')}} " class="yellowcircle">
+            <img src="{{ url_for('static', filename='Images/rectangle3.png')}} " class="rectangle3">
+        </div>
+    </div>
+</body>
+</html>
